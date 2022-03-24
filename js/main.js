@@ -10,10 +10,14 @@ const età_utente = parseInt(prompt('Inserisci la tua età'));
 const tariffa = 0.21;
 
 let prezzo = (lunghezza_tratta * tariffa).toFixed(2);
-console.log(`Prezzo normale :${prezzo}€`);
 
 // calcolo sconto
 if (età_utente <= 18) {
     prezzo = (((lunghezza_tratta * tariffa) / 5 ) * 4).toFixed(2);
-    console.log(`Prezzo minorenni: ${prezzo}€`);
+    console.log(`Il biglietto costa :${prezzo}€ (tariffa minorenni)`);
+} else if (età_utente >= 65) {
+    prezzo = (((lunghezza_tratta * tariffa) / 5 ) * 3).toFixed(2);
+    console.log(`Il biglietto costa :${prezzo}€ (tariffa anziani)`);
+} else {
+    console.log(`Il biglietto costa :${prezzo}€ (tariffa normale)`);
 }
